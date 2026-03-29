@@ -19,10 +19,10 @@ No test framework is configured.
 
 No routing, no backend, no external state management. Transaction data is hardcoded in state (not persisted).
 
-- `src/App.jsx` — root component, owns the `transactions` array state
+- `src/App.jsx` — root component, owns the `transactions` array state and passes down add/delete handlers
 - `src/Summary.jsx` — computes and displays income/expenses/balance from transactions
 - `src/TransactionForm.jsx` — owns form state, calls `onAddTransaction` callback to add entries
-- `src/TransactionList.jsx` — owns filter state, renders filtered transaction table
+- `src/TransactionList.jsx` — owns filter state, renders filtered transaction table with delete buttons (confirms via `window.confirm` before deleting)
 - `src/App.css` — component styles
 - `src/index.css` — global reset/base styles
 
