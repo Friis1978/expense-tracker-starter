@@ -17,14 +17,15 @@ No test framework is configured.
 
 ## Architecture
 
-Single-component app — all state and UI live in `src/App.jsx`. No routing, no backend, no external state management. Transaction data is hardcoded in state (not persisted).
+No routing, no backend, no external state management. Transaction data is hardcoded in state (not persisted).
 
-Key files:
-- `src/App.jsx` — entire application (form, filters, summary cards, transaction table)
+- `src/App.jsx` — root component, owns the `transactions` array state
+- `src/Summary.jsx` — computes and displays income/expenses/balance from transactions
+- `src/TransactionForm.jsx` — owns form state, calls `onAddTransaction` callback to add entries
+- `src/TransactionList.jsx` — owns filter state, renders filtered transaction table
 - `src/App.css` — component styles
 - `src/index.css` — global reset/base styles
 
 ## Known Issues
 
-- Transaction amounts are stored as strings, causing summary calculations (income/expenses/balance) to concatenate instead of sum
 - "Freelance Work" is marked as `type: "expense"` but should be `type: "income"`
